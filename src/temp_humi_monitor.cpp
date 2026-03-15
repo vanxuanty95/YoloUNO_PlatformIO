@@ -31,14 +31,8 @@ void temp_humi_monitor(void *pvParameters){
         glob_temperature = temperature;
         glob_humidity = humidity;
 
-        // Print the results
-        
-        Serial.print("Humidity: ");
-        Serial.print(humidity);
-        Serial.print("%  Temperature: ");
-        Serial.print(temperature);
-        Serial.println("°C");
-        
+        // Print in one call to avoid RTOS task switching interleaving the output
+        Serial.printf("Humidity: %.2f  Temperature: %.2f\n", humidity, temperature);
         vTaskDelay(5000);
     }
     

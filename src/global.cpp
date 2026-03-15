@@ -2,6 +2,9 @@
 float glob_temperature = 0;
 float glob_humidity = 0;
 
+bool led1_state = false;
+bool led2_state = false;
+
 String WIFI_SSID;
 String WIFI_PASS;
 String CORE_IOT_TOKEN;
