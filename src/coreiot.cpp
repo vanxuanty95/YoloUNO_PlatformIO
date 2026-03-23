@@ -2,7 +2,7 @@
 
 // ----------- CONFIGURE THESE! -----------
 const char* coreIOT_Server = "10.235.76.226";  
-const char* coreIOT_Token = "g7drm1amhd3dchr379xu";   // Device Access Token
+const char* coreIOT_Token = "k40jhamgoeb4gs3lhrfo";   // Device Access Token
 const int   mqttPort = 1883;
 // ----------------------------------------
 
@@ -17,9 +17,9 @@ void reconnect() {
     // Attempt to connect (username=token, password=empty)
     //if (client.connect("ESP32Client", coreIOT_Token, NULL)) {
     String clientId = "ESP32Client-";
-    clientId += String(random(0xffff), HEX);
+    clientId = "0b7682a0-21fb-11f1-8e7d-45cdb4e6c818";
 
-    if (client.connect(clientId.c_str())) {
+    if (client.connect(clientId.c_str(), coreIOT_Token, NULL)) {
         
       Serial.println("connected to CoreIOT Server!");
       client.subscribe("v1/devices/me/rpc/request/+");
